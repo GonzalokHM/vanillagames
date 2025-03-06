@@ -1,27 +1,124 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --LinK-0: coral;
+  --LinK-hover: #d9fa00;
+  --LinK-active: #26f9fe;
+  --color: #242424;
+  --background-color: rgba(36, 36, 36, 0.863);
+  --background-color-shadow: rgba(255, 255, 255, 0.14);
+  --box-shadow: rgba(0, 0, 0, 0.2);
+  --border-color-shadow: rgba(255, 255, 255, 0.12);
 
+  color: var(--color);
+  background-color: var(--background-color);
   font-synthesis: none;
+  font-family: 'Press Start 2P';
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-body {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* nav */
+
+#nav {
+  border-radius: 20px;
+  max-width: 500px;
+}
+
+/* botón hamburguer */
+.hamburger {
+  display: none;
+  font-size: 30px;
+  background: none;
+  cursor: pointer;
+  border-radius: 20px;
+  justify-self: center;
+}
+
+/* LINKS */
+
+#links {
+  list-style: none;
+  padding: 0;
   margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  font-size: 11px;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.link {
+  padding: 5px 20px;
+  background-color: black;
+  border: 1px solid #ffea00;
+  border-radius: 15px;
 }
 
-#app {
-  text-align: center;
+.link a {
+  text-decoration: none;
+  color: var(--LinK-0);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.link a:hover {
+  color: var(--LinK-hover);
+  text-decoration: underline;
+}
+
+.link.active a {
+  color: var(--LinK-active);
+}
+
+@media screen and (max-width: 530px) {
+  .hamburger {
+    display: block;
+    font-size: 30px;
+    color: #26f9fe;
+    background: rgb(0 0 0 / 59%);
+    box-shadow: 0 4px 30px var(--box-shadow);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--border-color-shadow);
+    cursor: pointer;
+    border-radius: 20px;
+  }
+
+  #nav {
+    text-align: center;
+    display: none;
+    top: 41px;
+    width: 100%;
+    background: rgba(255, 60, 0, 0.91);
+  }
+
+  #nav.open {
+    display: block;
+    z-index: 3;
+  }
+
+  #nav ul {
+    padding: 6px;
+  }
+
+  #nav ul li {
+    margin-bottom: 3px;
+  }
+  .link {
+    padding: 5px;
+  }
+  #links {
+    flex-direction: column;
+    font-size: 22px;
+  }
+
+  .home-container {
+    min-height: 90vh;
+  }
 }

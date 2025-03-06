@@ -1,0 +1,116 @@
+#TTTContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  bottom: -10px;
+  align-items: center;
+  justify-content: center;
+  height: 96vh;
+}
+
+/* Start/End game button */
+
+.game-button {
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 0.5rem;
+  margin-top: -5rem;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.game-button.start {
+  background-color: #4caf50;
+  box-shadow: 0 0 20px 10px #4caf50;
+}
+
+.game-button.end {
+  background-color: #f44336;
+  box-shadow: 0 0 20px 10px #f44336;
+}
+
+/* turn info */
+
+.turn {
+  padding: 0.5rem;
+  color: black;
+  border-radius: 20px;
+  margin: 8px;
+  font-size: 11px;
+  background-color: #76fae580;
+  box-shadow: 0 4px 30px var(--box-shadow);
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--border-color-shadow);
+}
+
+/* Board */
+
+.board {
+  padding: 0.5rem;
+  border-radius: 20px;
+  background-color: var(--background-color-shadow);
+  box-shadow: 0 4px 30px var(--box-shadow);
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--border-color-shadow);
+}
+
+.board button {
+  border-radius: 50%;
+  font-size: 35px;
+  text-align: center;
+  color: #26f9fe;
+  border: 2px solid deeppink;
+  background-color: black;
+}
+.tic-tac-toe-row {
+  display: flex;
+  justify-content: center;
+}
+
+.tic-tac-toe-cell {
+  width: 18vh;
+  height: 18vh;
+  margin: 5px;
+}
+
+.tic-tac-toe-icon {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+/* winer */
+
+.winner {
+  position: absolute;
+  background-image: url('./../../../assets/tictactoeWinner.webp');
+  width: 256px;
+  height: 256px;
+  text-align: center;
+}
+
+.winner p {
+  font-family: 'Press Start 2P', cursive;
+  position: relative;
+  top: 114px;
+}
+
+/* off/on music */
+.togle-music {
+  background-color: black;
+  border-radius: 8px;
+  color: #f0eddb;
+  padding: 0.2rem;
+}
+
+@media screen and (max-width: 500px) {
+  .tic-tac-toe-cell {
+    width: 13vh;
+    height: 13vh;
+  }
+
+  #TTTContainer {
+    height: 94vh;
+  }
+}

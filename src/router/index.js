@@ -1,20 +1,31 @@
-export default function createRouter(routes) {
-  function router() {
-    const path = window.location.pathname
-    const container = document.getElementById('app')
-    container.innerHTML = ''
+import routes from '../data/routes'
 
-    const route =
-      routes.find((r) => r.path === path) || routes.find((r) => r.default)
+let currentCleanup = null
 
-    if (route && typeof route.component === 'function') {
-      route.component(container)
-    } else {
-      container.innerHTML = '<h2>Página no encontrada</h2>'
-    }
+export default function router(container) {
+  const path = window.location.pathname
+  const target = container || document.querySelector('main')
+  if (!target) return
+
+  if (currentCleanup && typeof currentCleanup === 'function') {
+    currentCleanup()
+    currentCleanup = null
   }
+  target.innerHTML = ''
 
-  window.addEventListener('popstate', router)
+  const route =
+    routes.find((r) => r.path === path) || routes.find((r) => r.default)
 
-  return { router }
+  if (route && typeof route.component === 'function') {
+    const cleanupFn = route.component(target)
+    if (typeof cleanupFn === 'function') {
+      currentCleanup = cleanupFn
+    }
+  } else {
+    container.innerHTML = '<h2>Página no encontrada</h2>'
+  }
 }
+
+window.addEventListener('popstate', () => {
+  window.router && window.router(window.mainContainer)
+})

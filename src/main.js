@@ -1,23 +1,20 @@
 import './style.css'
-import routes from './Data/routes.js'
-import createRouter from './router/index.js'
-import createFooter from './components/footer/footer.js'
-import createNavBar from './components/navbar/navbar.js'
+import router from './router/index.js'
+import footer from './components/footer/footer.js'
+import header from './components/header/header.js'
 
-const { router } = createRouter(routes)
+if (window.location.pathname === '/') {
+  window.location.pathname = '/Home'
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-  const app = document.createElement('div')
-  app.id = 'app'
-  document.body.appendChild(app)
+const app = document.getElementById('app')
 
-  const header = document.createElement('header')
-  const navComponent = createNavBar()
-  header.appendChild(navComponent.element)
-  document.body.insertBefore(header, app)
+const headerComponent = header()
+const main = document.createElement('main')
+const footerComponent = footer()
+app.append(headerComponent.element, main, footerComponent)
 
-  const footer = createFooter()
-  document.body.appendChild(footer)
+window.router = router
+window.main = main
 
-  router()
-})
+router(main)

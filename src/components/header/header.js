@@ -1,5 +1,6 @@
-export default function createNavBar() {
-  const navContainer = document.createElement('div')
+export default function header() {
+  const header = document.createElement('header')
+  header.innerHTML = ''
 
   const hamburgerButton = document.createElement('button')
   hamburgerButton.className = 'hamburger'
@@ -12,7 +13,7 @@ export default function createNavBar() {
   ul.id = 'links'
 
   const links = [
-    { path: '/', label: 'Home' },
+    { path: '/Home', label: 'Home' },
     { path: '/Tic-Tac-Toe', label: 'Tic-Tac-Toe' },
     { path: '/Hangman', label: 'Hangman' },
     { path: '/Sudoku', label: 'Sudoku' }
@@ -29,7 +30,7 @@ export default function createNavBar() {
       e.preventDefault()
       history.pushState(null, '', linkData.path)
 
-      window.router && window.router()
+      window.router && window.router(window.main)
       updateActiveLink()
 
       nav.classList.remove('open')
@@ -40,8 +41,8 @@ export default function createNavBar() {
   })
 
   nav.appendChild(ul)
-  navContainer.appendChild(hamburgerButton)
-  navContainer.appendChild(nav)
+  header.appendChild(hamburgerButton)
+  header.appendChild(nav)
 
   hamburgerButton.addEventListener('click', () => {
     nav.classList.toggle('open')
@@ -62,5 +63,5 @@ export default function createNavBar() {
 
   updateActiveLink()
 
-  return { element: navContainer, updateActiveLink }
+  return { element: header, updateActiveLink }
 }

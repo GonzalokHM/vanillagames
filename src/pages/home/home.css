@@ -1,0 +1,160 @@
+.home-container {
+  background-image: url(../../../assets/HomeBackground.webp);
+  background-size: cover;
+  background-position: center;
+  min-width: 100vw;
+  height: 96vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+}
+
+h1 {
+  font-family: 'Press Start 2P', cursive;
+  text-rendering: optimizeSpeed;
+  -webkit-text-stroke: 2px #10ebdee3;
+
+  color: transparent;
+  background-image: url('../../../assets/HomeH1Patron.webp');
+  background-clip: text; /* Aplicar el fondo solo al área del texto */
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+  /* text-shadow: 3px 3px 0px #000; */
+  box-shadow: 0 0 20px 10px #10ebde;
+  animation: shake 0.5s ease infinite;
+}
+
+.carousel {
+  display: flex;
+  justify-content: center;
+  width: 44vh;
+}
+
+.card {
+  cursor: pointer;
+  position: relative;
+  width: 97px;
+  height: 107px;
+  margin: 5px;
+  perspective: 1500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* .card */
+.inner-card {
+  width: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+.card.flipped .inner-card {
+  transform: rotateY(180deg);
+}
+
+.front {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.back {
+  transform: rotateY(180deg);
+  background: #828b9f;
+  position: absolute;
+  width: 80%;
+  backface-visibility: hidden;
+  margin-left: 8px;
+  height: 97px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.back p {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 7px;
+}
+
+.front {
+  background: #888;
+  transform: rotateY(0deg);
+}
+
+.front .label {
+  background-color: #000;
+  color: #fff;
+  padding: 5px;
+  width: 90%;
+  text-align: center;
+  position: absolute;
+  top: 10px;
+}
+
+.top-label {
+  font-family: 'Press Start 2P', cursive;
+  color: #4c4c4c;
+  text-shadow: 1px 1px #000;
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.game-image {
+  width: 100%;
+  position: absolute;
+  object-fit: cover;
+  left: 0;
+}
+
+/* Efecto 3D para los lados del cartucho */
+.card:before,
+.card:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 10px;
+  background: linear-gradient(to bottom, #ccc 0%, #999 50%, #ccc 100%);
+  top: 0;
+}
+
+.card:before {
+  left: -10px;
+  transform: rotateY(90deg);
+}
+
+.card:after {
+  right: -10px;
+  transform: rotateY(-90deg);
+}
+
+.togle-music {
+  position: relative;
+  border-radius: 8px;
+  color: #f0eddb;
+  padding: 0.2rem;
+  font-size: 20px;
+  left: 8vw;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(-2px);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+  100% {
+    transform: translateX(-2px);
+  }
+}
+
+@media screen and (min-height: 700px) {
+  .back {
+    height: 103px;
+  }
+}

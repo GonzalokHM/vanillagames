@@ -1,0 +1,143 @@
+.hangman-container {
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#hangman-drawing {
+  position: relative;
+  bottom: 163px;
+  left: 31px;
+}
+
+.hangman-part {
+  position: absolute;
+  background-color: darkred;
+  visibility: hidden;
+}
+
+.hangman-part.head {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  top: 20px;
+  left: 60px;
+}
+
+.hangman-part.body {
+  width: 4px;
+  height: 50px;
+  top: 50px;
+  left: 75px;
+}
+
+.hangman-part.left-arm {
+  width: 4px;
+  height: 30px;
+  top: 60px;
+  left: 75px;
+  transform: rotate(-45deg);
+  transform-origin: top;
+}
+
+.hangman-part.right-arm {
+  width: 4px;
+  height: 30px;
+  top: 60px;
+  left: 75px;
+  transform: rotate(45deg);
+  transform-origin: top;
+}
+
+.hangman-part.left-leg {
+  width: 4px;
+  height: 30px;
+  top: 100px;
+  left: 75px;
+  transform: rotate(-45deg);
+  transform-origin: top;
+}
+
+.hangman-part.right-leg {
+  width: 4px;
+  height: 30px;
+  top: 100px;
+  left: 75px;
+  transform: rotate(45deg);
+  transform-origin: top;
+}
+
+#word {
+  background-image: url(../../../assets/hangmanWanted.jpg);
+  border-radius: 5px;
+  background-size: cover;
+  height: 302px;
+  width: 216px;
+  display: flex;
+  padding-bottom: 1.3rem;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+#word p {
+  display: flex;
+  justify-content: center;
+  font-size: 21px;
+}
+
+.error-info {
+  background-image: url(../../../assets/hangmanSoftWood.webp);
+  border-radius: 5px;
+  padding: 1rem;
+  color: #660000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.alphabet {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.alphabet button {
+  font-size: 30px;
+  font-weight: bold;
+  width: 35px;
+  height: 35px;
+  margin: 2px;
+  background-color: var(--background-color-shadow);
+  box-shadow: 0 4px 30px var(--box-shadow);
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--border-color-shadow);
+}
+
+.togle-music {
+  background-image: url(../../../assets/hangmanWood.webp);
+  border-radius: 8px;
+  color: #f0eddb;
+  padding: 0.2rem;
+}
+
+.hangman-start {
+  background-image: url(../../../assets/hangmanWood.webp);
+  border-radius: 8px;
+  color: #f0eddb;
+  padding: 0.5rem;
+}
+
+.game-message {
+  background-image: url(../../../assets/hangmanExplosion.gif);
+  color: darkred;
+  width: 121px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  position: absolute;
+}

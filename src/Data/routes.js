@@ -1,32 +1,33 @@
-import setupHome from '../pages/home'
+import hangman from '../pages/hangman/hangman'
+import home from '../pages/home/home'
+import sudokuGame from '../pages/sudoku/sudoku'
+import ticTacToe from '../pages/ticTacToe/ticTacToe'
 
-export default routes = [
-  { path: '/', component: setupHome },
-  { path: '/index.html', component: setupHome },
+const routes = [
+  {
+    path: '/Home',
+    component: (container) => {
+      return home(container)
+    }
+  },
   {
     path: '/Tic-Tac-Toe',
     component: (container) => {
-      container.innerHTML = '<h2>Tic Tac Toe view</h2>'
-      // TicTacToe
+      return ticTacToe(container)
     }
   },
   {
     path: '/Hangman',
     component: (container) => {
-      container.innerHTML = '<h2>Hangman view</h2>'
-      // Hangman
+      return hangman(container)
     }
   },
   {
     path: '/Sudoku',
     component: (container) => {
-      container.innerHTML = '<h2>Sudoku view</h2>'
-      // Sudoku
+      return sudokuGame(container)
     }
-  },
-  {
-    default: true,
-    component: (container) =>
-      (container.innerHTML = '<h2>Página no encontrada</h2>')
   }
 ]
+
+export default routes
